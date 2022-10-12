@@ -7,6 +7,7 @@ PATH_SRCS = .
 PATH_OBJS = .
 LIBDIR = libft
 LIB = $(LIBDIR)/libft.a
+MLX = minilibx-linux/libmlx.a
 
 SRCS = $(addprefix $(PATH_SRCS)/, fdf.c)
 
@@ -16,7 +17,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	make -C $(LIBDIR)
-	$(CC) $(CCFLAGS) -o $(NAME) $(OBJS) $(LIB) -lm
+	$(CC) $(CCFLAGS) -o $(NAME) $(OBJS) $(LIB) $(MLX) -lm
 
 $(OBJS): $(SRCS)
 	$(CC) $(CCFLAGS) -c $(SRCS) -I $(PATH_INCS)
