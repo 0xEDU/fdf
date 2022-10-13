@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: etachott <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/11 19:01:25 by etachott          #+#    #+#              #
-#    Updated: 2022/10/11 19:12:26 by etachott         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = fdf
 
 CCFLAGS = -Wall -Wextra -Werror
@@ -19,8 +7,7 @@ PATH_SRCS = .
 PATH_OBJS = .
 LIBDIR = libft
 LIB = $(LIBDIR)/libft.a
-
-LXFLAGS = -lXext -lX11 -lm
+MLX = minilibx-linux/libmlx.a
 
 SRCS = $(addprefix $(PATH_SRCS)/, fdf.c)
 
@@ -30,10 +17,10 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	make -C $(LIBDIR)
-	clang $(CCFLAGS) -o $(NAME) $(OBJS) $(LIB) $(LXFLAGS)
+	$(CC) $(CCFLAGS) -o $(NAME) $(OBJS) $(LIB) $(MLX) -lm
 
 $(OBJS): $(SRCS)
-	clang $(CCFLAGS) -c $(NAME) -I $(PATH_INCS) -I minilibx-linux/ -L minilibx-linux/ $(LXFLAGS) -lmlx_Linux
+	$(CC) $(CCFLAGS) -c $(SRCS) -I $(PATH_INCS)
 
 clean:
 	/bin/rm -f $(OBJS)
