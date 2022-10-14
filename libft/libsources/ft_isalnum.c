@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 17:33:35 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/14 16:11:40 by edu              ###   ########.fr       */
+/*   Created: 2022/08/27 16:42:24 by coder             #+#    #+#             */
+/*   Updated: 2022/08/29 19:29:35 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+int	ft_isalnum(int c)
 {
-	void	*mlx;
-//	void	*window;
-
-	mlx = mlx_init();
-	mlx_destroy_display(mlx);
-	ft_printf("mlx = %p", mlx);
-	free(mlx);
+	if ((65 <= c && c <= 90) || (97 <= c && c <= 122) || (48 <= c && c <= 57))
+		return (8);
 	return (0);
 }

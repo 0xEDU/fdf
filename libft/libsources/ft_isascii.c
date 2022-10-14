@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 17:33:35 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/14 16:11:40 by edu              ###   ########.fr       */
+/*   Created: 2022/08/27 17:14:55 by coder             #+#    #+#             */
+/*   Updated: 2022/09/10 13:31:03 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+int	ft_isascii(int c)
 {
-	void	*mlx;
-//	void	*window;
-
-	mlx = mlx_init();
-	mlx_destroy_display(mlx);
-	ft_printf("mlx = %p", mlx);
-	free(mlx);
-	return (0);
+	if (0 <= c && c <= 127)
+		return (1);
+	else
+		return (0);
 }

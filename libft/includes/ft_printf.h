@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/14 16:02:46 by edu              ###   ########.fr       */
+/*   Created: 2022/09/27 12:28:37 by coder             #+#    #+#             */
+/*   Updated: 2022/10/14 15:51:19 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
-# include <mlx.h>
-# include "libft/includes/libft.h"
-# include "libft/includes/get_next_line.h"
-# include "libft/includes/ft_printf.h"
-# include "libft/includes/libput.h"
-# include <unistd.h>
-# include <stdio.h>
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include <stdarg.h>
 
+int		ft_printf(const char *format, ...);
+int		print_pointer(unsigned long int p);
 #endif

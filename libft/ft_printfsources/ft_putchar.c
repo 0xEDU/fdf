@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 17:33:35 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/14 16:11:40 by edu              ###   ########.fr       */
+/*   Created: 2022/09/27 21:46:43 by coder             #+#    #+#             */
+/*   Updated: 2022/10/01 03:55:17 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include <stdio.h>
+#include "libput.h"
 
-int	main(void)
+int	ft_putchar(char c)
 {
-	void	*mlx;
-//	void	*window;
-
-	mlx = mlx_init();
-	mlx_destroy_display(mlx);
-	ft_printf("mlx = %p", mlx);
-	free(mlx);
-	return (0);
+	write(1, &c, 1);
+	return (1);
 }

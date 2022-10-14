@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 17:33:35 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/14 16:11:40 by edu              ###   ########.fr       */
+/*   Created: 2022/08/29 16:01:04 by coder             #+#    #+#             */
+/*   Updated: 2022/08/29 16:10:39 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+int	ft_toupper(int c)
 {
-	void	*mlx;
-//	void	*window;
-
-	mlx = mlx_init();
-	mlx_destroy_display(mlx);
-	ft_printf("mlx = %p", mlx);
-	free(mlx);
-	return (0);
+	if (97 <= c && c <= 122)
+		return (c - 32);
+	else
+		return (c);
 }

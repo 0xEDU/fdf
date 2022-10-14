@@ -5,9 +5,9 @@ CCFLAGS = -Wall -Wextra -Werror
 PATH_INCS = .
 PATH_SRCS = .
 PATH_OBJS = .
+
 LIBDIR = libft
 LIB = $(LIBDIR)/libft.a
-MLX = minilibx-linux/libmlx.a 
 
 SRCS = $(addprefix $(PATH_SRCS)/, fdf.c)
 
@@ -16,10 +16,14 @@ OBJS = $(SRCS:$(PATH_SRCS)/%.c=$(PATH_OBJS)/%.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	@make --no-print-directory -C $(LIBDIR)
+	@make --no-print-directory -C $(LIBDIR) clean
+	@$(CC) $(CCFLAGS) $(OBJS) $(LIB) -lmlx -lXext -lX11 -o $(NAME)
+	@echo -e "\033[32m[FdF created]\033[0m"
 
 $(OBJS): $(SRCS)
-	$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
+	@$(CC) $(CCFLAGS) -c $(SRCS)
+	@echo -e "\033[32m[FdF objects created]\033[0m"
 
 clean:
 	/bin/rm -f $(OBJS)

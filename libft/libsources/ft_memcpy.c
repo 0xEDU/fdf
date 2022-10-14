@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 17:33:35 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/14 16:11:40 by edu              ###   ########.fr       */
+/*   Created: 2022/08/29 12:33:09 by coder             #+#    #+#             */
+/*   Updated: 2022/08/31 22:58:20 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	void	*mlx;
-//	void	*window;
+	void	*dest2;
 
-	mlx = mlx_init();
-	mlx_destroy_display(mlx);
-	ft_printf("mlx = %p", mlx);
-	free(mlx);
-	return (0);
+	dest2 = dest;
+	while (n--)
+		*(char *)dest++ = *(char *)src++;
+	return (dest2);
 }
