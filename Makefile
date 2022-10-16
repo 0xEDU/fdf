@@ -1,6 +1,7 @@
 NAME = fdf
 
 CCFLAGS = -Wall -Wextra -Werror
+MLXFLAGS = -lmlx -lXext -lX11 -lm -lz
 
 PATH_INCS = .
 PATH_SRCS = .
@@ -18,7 +19,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@make --no-print-directory -C $(LIBDIR)
 	@make --no-print-directory -C $(LIBDIR) clean
-	@$(CC) $(CCFLAGS) $(OBJS) $(LIB) -lmlx -lXext -lX11 -o $(NAME)
+	@$(CC) $(CCFLAGS) $(OBJS) $(LIB) $(MLXFLAGS) -o $(NAME)
 	@echo -e "\033[32m[FdF created]\033[0m"
 
 $(OBJS): $(SRCS)
