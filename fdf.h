@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/15 16:39:57 by edu              ###   ########.fr       */
+/*   Updated: 2022/10/16 13:24:20 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,8 @@ typedef struct s_data {
 	int		endian;
 }				t_data;
 
+typedef struct s_mlx_vars {
+	void	*mlx;
+	void	*window;
+}			t_mlx_vars;
 #endif
