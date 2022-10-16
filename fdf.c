@@ -6,19 +6,11 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:33:35 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/15 22:31:15 by edu              ###   ########.fr       */
+/*   Updated: 2022/10/16 00:26:50 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-static void	put_pixel(t_data *data, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
-}
 
 static void	paint_window(t_data img, int w_length, int w_height)
 {
@@ -29,11 +21,11 @@ static void	paint_window(t_data img, int w_length, int w_height)
 	y = 0;
 	while (x <= w_length)
 	{
-		put_pixel(&img, x, y, 0x00FF0000);
+		put_pixel(&img, x, y, 0x00000000);
 		y = 0;
 		while (y <= w_height)
 		{
-			put_pixel(&img, x, y, 0x00FF0000);
+			mlx_pixel_put(&img, x, y, 0x00000000);
 			y++;
 		}
 		x++;
@@ -49,7 +41,7 @@ static void	put_triangle(t_data img)
 	y = 100;
 	while (y <= 500)
 	{
-		put_pixel(&img, x, y, 0x000000FF);
+		mlx_pixel_put(&img, x, y, 0x000000FF);
 		y++;
 	}
 }
@@ -69,5 +61,6 @@ int	main(void)
 	put_triangle(img);
 	mlx_put_image_to_window(mlx, window, img.img, 0, 0);
 	mlx_loop(mlx);
+//	mlx_key_hook(window, close_window, )
 	return (0);
 }
