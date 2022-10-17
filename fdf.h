@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/17 14:23:14 by etachott         ###   ########.fr       */
+/*   Updated: 2022/10/17 16:43:25 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ typedef struct s_coordinates {
 	int		y;
 	int		z;
 }				t_coordinates;
+
+typedef struct s_map {
+	int		width;
+	int		height;
+	int		**matrix;
+}				t_map;
 
 void	put_pixel(t_data *data, int x, int y, int color);
 void	paint_image(t_data img, int w_length, int w_height);
