@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/17 08:06:40 by etachott         ###   ########.fr       */
+/*   Updated: 2022/10/17 08:07:32 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,4 @@ typedef struct s_coordinates {
 	int		y;
 	int		z;
 }				t_coordinates;
-}
 #endif
