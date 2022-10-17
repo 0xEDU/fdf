@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/17 09:08:02 by etachott         ###   ########.fr       */
+/*   Updated: 2022/10/17 14:23:14 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "libft/includes/ft_printf.h"
 # include "libft/includes/libput.h"
 # include <unistd.h>
+# include <fcntl.h>
 # include <stdio.h>
 
 typedef struct s_data {
@@ -41,5 +42,6 @@ typedef struct s_coordinates {
 
 void	put_pixel(t_data *data, int x, int y, int color);
 void	paint_image(t_data img, int w_length, int w_height);
+void	put_square(t_data img, t_coordinates coord, int square_size, int color);
 void	put_triangle(t_data img);
 #endif

@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 08:12:50 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/17 09:06:07 by etachott         ###   ########.fr       */
+/*   Updated: 2022/10/17 14:31:01 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,26 @@ void	paint_image(t_data img, int w_length, int w_height)
 		while (coord.y <= w_height)
 		{
 			put_pixel(&img, coord.x, coord.y, 0x00000000);
+			coord.y++;
+		}
+		coord.x++;
+	}
+}
+
+void	put_square(t_data img, t_coordinates coord, int square_size, int color)
+{
+	int	x_original;
+	int	y_original;
+
+	x_original = coord.x;
+	y_original = coord.y;
+	while (coord.x <= square_size)
+	{
+		put_pixel(&img, coord.x, coord.y, color);
+		coord.y = y_original;
+		while (coord.y <= square_size)
+		{
+			put_pixel(&img, coord.x, coord.y, color);
 			coord.y++;
 		}
 		coord.x++;
@@ -61,6 +81,6 @@ void	put_pixel(t_data *data, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = data->addr + (y * data->line_length + x * (data-> bits_per_pixel / 8));
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
 }

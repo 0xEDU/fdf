@@ -1,6 +1,6 @@
 NAME = fdf
 
-CCFLAGS = -Wall -Wextra -Werror
+CCFLAGS = -Wall -Wextra -Werror -g3
 MLXFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
 
 PATH_INCS = .
