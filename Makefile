@@ -1,7 +1,7 @@
 NAME = fdf
 
 CCFLAGS = -Wall -Wextra -Werror
-MLXFLAGS = -lmlx -lXext -lX11 -lm -lz
+MLXFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
 
 PATH_INCS = .
 PATH_SRCS = .
@@ -23,7 +23,7 @@ $(NAME): $(OBJS)
 	@echo -e "\033[32m[FdF created]\033[0m"
 
 $(OBJS): $(SRCS)
-	@$(CC) $(CCFLAGS) -c $(SRCS)
+	@$(CC) $(CCFLAGS) -c $(SRCS) -Iminilibx-linux
 	@echo -e "\033[32m[FdF objects created]\033[0m"
 
 clean:
