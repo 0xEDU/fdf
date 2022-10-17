@@ -6,44 +6,18 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:33:35 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/16 13:49:43 by edu              ###   ########.fr       */
+/*   Updated: 2022/10/17 09:39:53 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void	paint_window(t_mlx_vars mlx, int w_length, int w_height)
+int	key_press_events(int keycode, t_mlx_vars *mlx)
 {
-	int	x;
-	int	y;
-
-	x = 0;
-	y = 0;
-	while (x <= w_length)
-	{
-		mlx_pixel_put(mlx.mlx, mlx.window, x, y, 0x00000000);
-		y = 0;
-		while (y <= w_height)
-		{
-			mlx_pixel_put(mlx.mlx, mlx.window, x, y, 0x00000000);
-			y++;
-		}
-		x++;
-	}
-}
-
-static void	put_triangle(t_mlx_vars mlx)
-{
-	int x;
-	int y;
-
-	x = 100;
-	y = 100;
-	while (y <= 500)
-	{
-		mlx_pixel_put(mlx.mlx, mlx.window, x, y, 0x000000FF);
-		y++;
-	}
+	if (keycode == 65307)
+		mlx_destroy_window(mlx->mlx, mlx->window);
+	ft_printf("KEYCODE = %d\n", keycode);
+	return (0);
 }
 
 int	main(void)
@@ -52,14 +26,14 @@ int	main(void)
 	t_data		img;
 
 	mlx.mlx = mlx_init();
-	mlx.window = mlx_new_window(mlx.mlx, 800, 600, "Hello World!");
+	mlx.window = mlx_new_window(mlx.mlx, 800, 600, "FdF");
 	img.img = mlx_new_image(mlx.mlx, 800, 600);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
-	paint_window(mlx, 800, 600);
-	put_triangle(mlx);
-	//mlx_put_image_to_window(mlx.mlx, mlx.window, img.img, 0, 0);
+	paint_image(img, 800, 600);
+	put_triangle(img);
+	mlx_put_image_to_window(mlx.mlx, mlx.window, img.img, 0, 0);
+	mlx_hook(mlx.window, 2, 1L<<0, key_press_events, &mlx);
 	mlx_loop(mlx.mlx);
-//	mlx_key_hook(vars.window, close_window, )
 	return (0);
 }

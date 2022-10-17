@@ -10,7 +10,8 @@ PATH_OBJS = .
 LIBDIR = libft
 LIB = $(LIBDIR)/libft.a
 
-SRCS = $(addprefix $(PATH_SRCS)/, fdf.c)
+SRCS = $(addprefix $(PATH_SRCS)/, fdf.c \
+	   mlx_utils.c)
 
 OBJS = $(SRCS:$(PATH_SRCS)/%.c=$(PATH_OBJS)/%.o)
 
