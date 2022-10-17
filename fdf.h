@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/16 13:24:20 by edu              ###   ########.fr       */
+/*   Updated: 2022/10/17 08:06:40 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,11 @@ typedef struct s_mlx_vars {
 	void	*mlx;
 	void	*window;
 }			t_mlx_vars;
+
+typedef struct s_coordinates {
+	int		x;
+	int		y;
+	int		z;
+}				t_coordinates;
+}
 #endif
