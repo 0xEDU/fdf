@@ -6,7 +6,7 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:44:50 by coder             #+#    #+#             */
-/*   Updated: 2022/10/14 16:07:31 by edu              ###   ########.fr       */
+/*   Updated: 2022/10/18 17:58:42 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 
 // prototypes
-void	*ft_calloc(size_t count, size_t size);
+void	*gnl_calloc(size_t count, size_t size);
 char	*gnl_strjoin(char *s1, char *s2);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
