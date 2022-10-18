@@ -6,11 +6,32 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 08:12:50 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/17 14:31:01 by etachott         ###   ########.fr       */
+/*   Updated: 2022/10/18 16:52:46 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+// Create a function to print an int matrix
+void	print_matrix(int **matrix)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (matrix[i])
+	{
+		while (matrix[i][j])
+		{
+			ft_printf("%d ", matrix[i][j]);
+			j++;
+		}
+		ft_printf("\n");
+		j = 0;
+		i++;
+	}
+}
 
 void	paint_image(t_data img, int w_length, int w_height)
 {
@@ -33,10 +54,10 @@ void	paint_image(t_data img, int w_length, int w_height)
 
 void	put_square(t_data img, t_coordinates coord, int square_size, int color)
 {
-	int	x_original;
+	//int	x_original;
 	int	y_original;
 
-	x_original = coord.x;
+	//x_original = coord.x;
 	y_original = coord.y;
 	while (coord.x <= square_size)
 	{
