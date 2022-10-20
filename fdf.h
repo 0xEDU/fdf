@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/20 14:02:00 by etachott         ###   ########.fr       */
+/*   Updated: 2022/10/20 20:23:31 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ size_t			ft_count_words(const char **matrix);
 t_map_values	*ft_stoia(char *str, int iteration);
 void			naive_draw_line(t_data img, int x0, int x1, int y0, int y1);
 void			paint_image(t_data img, int w_length, int w_height);
-void			print_map(t_data img, t_map_values **matrix, int rows, int columns);
+void			print_map(t_data img, t_map_values **matrix, int rows);
 void			put_pixel(t_data *data, int x, int y, int color);
 void			put_square(t_data img, t_map_values map_values, int square_size, int color);
 void			put_triangle(t_data img);

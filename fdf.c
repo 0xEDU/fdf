@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:33:35 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/20 14:10:43 by etachott         ###   ########.fr       */
+/*   Updated: 2022/10/20 20:23:11 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int	main(int argc, char *argv[])
 	t_mlx_vars	mlx;
 	t_data		img;
 	size_t		rows;
-	size_t		cols;
 
 	if (argc != 2)
 		return (ft_printf("Usage: ./fdf [FILE]\n"));
@@ -88,7 +87,7 @@ int	main(int argc, char *argv[])
 			&img.endian);
 	paint_image(img, 800, 600);
 	map = create_matrix_from_file(argv[1], rows);
-	print_map(img, map, rows, cols);
+	print_map(img, map, rows);
 //	print_matrix(map, rows);
 	mlx_put_image_to_window(mlx.mlx, mlx.window, img.img, 0, 0);
 	ft_printf("IMAGE PUT TO WINDOW\n");
