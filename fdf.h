@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/18 17:22:12 by edu              ###   ########.fr       */
+/*   Updated: 2022/10/20 11:47:32 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ typedef struct s_mlx_vars {
 	void	*window;
 }			t_mlx_vars;
 
-typedef struct s_coordinates {
+typedef struct s_map_values{
 	int		x;
 	int		y;
 	int		z;
-}				t_coordinates;
+}				t_map_values;
 
 typedef struct s_map {
 	int		width;
@@ -46,13 +46,17 @@ typedef struct s_map {
 	int		**matrix;
 }				t_map;
 
-size_t	ft_count_lines(char *file);
-void	paint_image(t_data img, int w_length, int w_height);
-void	put_pixel(t_data *data, int x, int y, int color);
-void	put_square(t_data img, t_coordinates coord, int square_size, int color);
-void	put_triangle(t_data img);
+void			draw_lines(t_data img, int **matrix);
+void			free_matrix(void **matrix, int elements);
+size_t			ft_count_lines(char *file);
+size_t			ft_count_words(const char **matrix);
+t_map_values	*ft_stoia(char *str, int iteration);
+void			naive_draw_line(t_data img, int x0, int x1, int y0, int y1);
+void			paint_image(t_data img, int w_length, int w_height);
+void			put_pixel(t_data *data, int x, int y, int color);
+void			put_square(t_data img, t_map_values map_values, int square_size, int color);
+void			put_triangle(t_data img);
 
 // Temporary functions (COPILOT)
 
-void	print_matrix(int **matrix);
 #endif
