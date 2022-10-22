@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/20 20:23:31 by etachott         ###   ########.fr       */
+/*   Updated: 2022/10/21 16:24:04 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
+# include <math.h>
 
 typedef struct s_data {
 	void	*img;

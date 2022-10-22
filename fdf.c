@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:33:35 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/20 20:23:11 by etachott         ###   ########.fr       */
+/*   Updated: 2022/10/21 16:56:00 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ int	main(int argc, char *argv[])
 			&img.endian);
 	paint_image(img, 800, 600);
 	map = create_matrix_from_file(argv[1], rows);
-	print_map(img, map, rows);
-//	print_matrix(map, rows);
+	print_map(img, map, 18);
+	print_matrix(map, rows);
 	mlx_put_image_to_window(mlx.mlx, mlx.window, img.img, 0, 0);
 	ft_printf("IMAGE PUT TO WINDOW\n");
 	mlx_loop_hook(mlx.mlx, &handle_no_event, (void *) &mlx);
