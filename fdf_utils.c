@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 17:12:03 by edu               #+#    #+#             */
-/*   Updated: 2022/10/20 12:21:44 by etachott         ###   ########.fr       */
+/*   Updated: 2022/10/24 09:48:20 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,10 @@ t_map_values	*ft_stoia(char *str, int iteration)
 		final_array[index].x = index;
 		final_array[index].y = iteration;
 		final_array[index].z = ft_atoi(word_matrix[index]);
+		final_array[index].eol = 0;
 		index++;
 	}
+	final_array[index - 1].eol = 1;
 	free_matrix((void **)word_matrix, elements);
 	return (final_array);
 }

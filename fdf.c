@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:33:35 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/23 13:25:55 by edu              ###   ########.fr       */
+/*   Updated: 2022/10/24 14:46:25 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ int	key_press_events(int keycode, t_mlx_vars *mlx)
 	if (keycode == 65307)
 		mlx_destroy_window(mlx->mlx, mlx->window);
 	ft_printf("KEYCODE = %d\n", keycode);
+	return (0);
+}
+
+int	mouse_press_events(int button, int x, int y, t_mlx_vars *mlx)
+{
+	ft_printf("BUTTON = %d\n", button);
+	ft_printf("X = %d\n", x);
+	ft_printf("Y = %d\n", y);
+	ft_printf("MLX = %p\n", mlx);
 	return (0);
 }
 
@@ -68,6 +77,19 @@ void	print_matrix(t_map_values **matrix, size_t rows)
 	}
 }
 
+void	main_loop(t_mlx_vars *mlx)
+{
+	mlx_hook(mlx->window, 2, 1L << 0, key_press_events, mlx);
+	mlx_hook(mlx->window, 4, 1L << 2, mouse_press_events, mlx);
+	mlx_loop_hook(mlx->mlx, handle_no_event, mlx);
+	mlx_loop(mlx->mlx);
+}
+
+void	create_window(t_mlx_vars *mlx)
+{
+	mlx->mlx = mlx_init();
+	mlx->window = mlx_new_window(mlx->mlx, 800, 600, "fdf");
+}
 
 int	main(int argc, char *argv[])
 {
@@ -79,21 +101,16 @@ int	main(int argc, char *argv[])
 	if (argc != 2)
 		return (ft_printf("Usage: ./fdf [FILE]\n"));
 	rows = ft_count_lines(argv[1]);
-	ft_printf("\e[1;42mLINES = %d\e[0m\n", rows);
-	mlx.mlx = mlx_init();
-	mlx.window = mlx_new_window(mlx.mlx, 800, 600, "FdF");
+	create_window(&mlx);
 	img.img = mlx_new_image(mlx.mlx, 800, 600);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
 	paint_image(img, 800, 600);
 	map = create_matrix_from_file(argv[1], rows);
-	print_map(img, map, 18);
+	print_map(img, map);
 	print_matrix(map, rows);
 	mlx_put_image_to_window(mlx.mlx, mlx.window, img.img, 0, 0);
-	ft_printf("IMAGE PUT TO WINDOW\n");
-	mlx_loop_hook(mlx.mlx, &handle_no_event, (void *) &mlx);
-	mlx_hook(mlx.window, 2, 1L << 0, key_press_events, &mlx);
-	mlx_loop(mlx.mlx);
+	main_loop(&mlx);
 	mlx_destroy_image(mlx.mlx, img.img);
 	mlx_destroy_display(mlx.mlx);
 	free_matrix((void **)map, ft_count_lines(argv[1])); //Free a matrix
