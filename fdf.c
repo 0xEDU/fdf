@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:33:35 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/21 16:56:00 by edu              ###   ########.fr       */
+/*   Updated: 2022/10/23 13:25:55 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	print_matrix(t_map_values **matrix, size_t rows)
 	while (i < rows)
 	{
 		j = 0;
-		while (j < 17)
+		while (j < 18)
 		{
 			ft_printf("%d ", matrix[i][j].z);
 			j++;
