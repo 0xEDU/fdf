@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:33:35 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/24 14:46:25 by etachott         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:09:11 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_map_values	**create_matrix_from_file(char *file, size_t rows)
 
 	i = 0;
 	fd = open(file, O_RDONLY);
-	final_matrix = (t_map_values **)malloc(sizeof(t_map_values *) * rows);
+	final_matrix = malloc(sizeof(t_map_values *) * rows + 1);
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -53,23 +53,26 @@ t_map_values	**create_matrix_from_file(char *file, size_t rows)
 		i++;
 		free(line);
 	}
+	final_matrix[i] = NULL;
 	close(fd);
 	return (final_matrix);
 }
 
 // Print a t_map_values matrix
-void	print_matrix(t_map_values **matrix, size_t rows)
+void	print_matrix(t_map_values **matrix)
 {
 	size_t	i;
 	size_t	j;
 
 	i = 0;
-	while (i < rows)
+	while (matrix[i])
 	{
 		j = 0;
-		while (j < 18)
+		while (matrix[i] + j)
 		{
 			ft_printf("%d ", matrix[i][j].z);
+			if ((matrix[i] + j)->eol)
+				break ;
 			j++;
 		}
 		ft_printf("\n");
@@ -101,14 +104,23 @@ int	main(int argc, char *argv[])
 	if (argc != 2)
 		return (ft_printf("Usage: ./fdf [FILE]\n"));
 	rows = ft_count_lines(argv[1]);
+	ft_printf("LINES COUNTED\n");
 	create_window(&mlx);
+	ft_printf("WINDOW CREATED\n");
 	img.img = mlx_new_image(mlx.mlx, 800, 600);
+	ft_printf("IMAGE CREATED\n");
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
+	ft_printf("DATA ADDRESS\n");
 	paint_image(img, 800, 600);
+	ft_printf("IMAGE PAINTED\n");
 	map = create_matrix_from_file(argv[1], rows);
+	ft_printf("MAP CREATED\n");
 	print_map(img, map);
-	print_matrix(map, rows);
+	ft_printf("MAP PRINTED\n");
+	print_matrix(map);
+	ft_printf("MATRIX PRINTED\n");
+	connect_dots(img, map);
 	mlx_put_image_to_window(mlx.mlx, mlx.window, img.img, 0, 0);
 	main_loop(&mlx);
 	mlx_destroy_image(mlx.mlx, img.img);

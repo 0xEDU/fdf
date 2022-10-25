@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/24 09:47:14 by etachott         ###   ########.fr       */
+/*   Updated: 2022/10/25 17:02:21 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,15 @@ typedef struct s_map {
 	int		**matrix;
 }				t_map;
 
-void			draw_lines(t_data img, int **matrix);
+typedef struct s_bsh {
+	int		x0;
+	int		y0;
+	int		x1;
+	int		y1;
+}				t_bsh;
+
+void			connect_dots(t_data img, t_map_values **map);
+void			draw_line(t_data img, t_map_values start, t_map_values end);
 void			free_matrix(void **matrix, int elements);
 size_t			ft_count_lines(char *file);
 size_t			ft_count_words(const char **matrix);
