@@ -11,6 +11,7 @@ LIBDIR = libft
 LIB = $(LIBDIR)/libft.a
 
 SRCS = $(addprefix $(PATH_SRCS)/, fdf.c \
+	   bresenham.c   \
 	   mlx_utils_1.c \
 	   mlx_utils_2.c \
 	   fdf_utils.c)
