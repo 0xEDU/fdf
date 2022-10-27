@@ -6,14 +6,14 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 16:36:09 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/25 18:12:02 by etachott         ###   ########.fr       */
+/*   Updated: 2022/10/27 18:50:55 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#define THETA 1
+#define THETA 0.7853982
 
-void	print_map(t_data img, t_map_values **matrix)
+void	print_map(t_map_values **matrix)
 {
 	int		x;
 	int		y;
@@ -24,14 +24,12 @@ void	print_map(t_data img, t_map_values **matrix)
 		y = 0;
 		while (matrix[x] + y)
 		{
+			matrix[x][y].x = (cos(THETA) * y - sin(THETA) * x) * 20 + 380;
+			matrix[x][y].y = (sin(THETA) * y + cos(THETA) * x) * 17 + 150 - (matrix[x][y].z * 8);
+			if (matrix[x][y].y < 0)
+				matrix[x][y].y *= -1;
 			if ((matrix[x] + y)->eol)
 				break;
-			matrix[x][y].x = (x * sin(THETA) - y * cos(THETA)) * 20 + 370;
-			matrix[x][y].y = (x * cos(THETA) + y * sin(THETA)) * 20 + 170 - (matrix[x][y].z * 2);
-			if (matrix[x][y].z > 0)
-				put_pixel(&img, matrix[x][y].x, matrix[x][y].y, 0x00FF0000);
-			else
-				put_pixel(&img, matrix[x][y].x, matrix[x][y].y, 0x00FFFFFF);
 			y++;
 		}
 		x++;
@@ -50,13 +48,17 @@ void	connect_dots(t_data img, t_map_values **map)
 		while (map[line] + column)
 		{
 			if (!map[line][column].eol)
-				draw_line(img,
+			{
+				draw_line2(img,
 					map[line][column],
 					map[line][column + 1]);
+			}
 			if (map[line + 1])
-				draw_line(img,
+			{
+				draw_line2(img,
 					map[line][column],
 					map[line + 1][column]);
+			}
 			if ((map[line] + column)->eol)
 				break ;
 			column++;

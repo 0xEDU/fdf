@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/25 17:02:21 by etachott         ###   ########.fr       */
+/*   Updated: 2022/10/26 12:54:35 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,14 @@ typedef struct s_bsh {
 
 void			connect_dots(t_data img, t_map_values **map);
 void			draw_line(t_data img, t_map_values start, t_map_values end);
+void			draw_line2(t_data img, t_map_values start, t_map_values end);
 void			free_matrix(void **matrix, int elements);
 size_t			ft_count_lines(char *file);
 size_t			ft_count_words(const char **matrix);
 t_map_values	*ft_stoia(char *str, int iteration);
 void			naive_draw_line(t_data img, int x0, int x1, int y0, int y1);
 void			paint_image(t_data img, int w_length, int w_height);
-void			print_map(t_data img, t_map_values **matrix);
+void			print_map(t_map_values **matrix);
 void			put_pixel(t_data *data, int x, int y, int color);
 void			put_square(t_data img, t_map_values map_values, int square_size, int color);
 void			put_triangle(t_data img);
