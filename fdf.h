@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/31 11:54:23 by edu              ###   ########.fr       */
+/*   Updated: 2022/10/31 15:57:59 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,12 @@ typedef struct s_data {
 	int		endian;
 }				t_data;
 
-typedef struct s_map_values{
+typedef struct s_line_values {
+	int	x;
+	int	y;
+}				t_line_values;
+
+typedef struct s_map_values {
 	int			x;
 	int			y;
 	int			z;
