@@ -6,69 +6,43 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:36:05 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/27 14:52:52 by etachott         ###   ########.fr       */
+/*   Updated: 2022/10/31 11:51:15 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	draw_line(t_data img, t_map_values start, t_map_values end)
+void	draw_line2(t_data *img, t_map_values start, t_map_values end)
 {
-	t_map_values	value;
-	int				dx;
-	int				dy;
-	int				D;
-
-	dx = end.x - start.x;
-	dy = end.y - start.y;
-	D = ((2 * dy) - dx);
-	value.x = start.x;
-	value.y = start.y;
-	value.z = 0;
-	while (value.x <= end.x)
-	{
-		put_pixel(&img, value.x, value.y, 0x00FFFFFF);
-		if (D > 0)
-		{
-			value.y++;
-			D = D - (2 * dx);
-		}
-		D = D + (2 * dy);
-		value.x++;
-	}
-}
-
-void	draw_line2(t_data img, t_map_values start, t_map_values end)
-{
-	int	dx;
+	int	delta_x;
 	int	sx;
-	int	dy;
+	int	delta_y;
 	int	sy;
 	int	error;
 
-	dx = abs(end.x - start.x);
+	delta_x = abs(end.x - start.x);
 	sx = start.x < end.x ? 1 : -1;
-	dy = -abs(end.y - start.y);
+	delta_y = -abs(end.y - start.y);
 	sy = start.y < end.y ? 1 : -1;
-	error = dx + dy;
+	error = delta_x + delta_y;
 	while (1)
 	{
-		put_pixel(&img, start.x, start.y, 0x0000FFFF);
+		put_pixel(img, start.x, start.y, 0x0000FFFF);
 		if (start.x == end.x && start.y == end.y)
 			break ;
-		if ((2 * error) >= dy)
+		if ((2 * error) >= delta_y)
 		{
 			if (start.x == end.x)
 				break ;
-			error += dy;
+			error += delta_y;
 			start.x += sx;
 		}
-		if ((2 * error) <= dx)
+		if ((2 * error) <= delta_x)
 		{
 			if (start.y == end.y)
 				break ;
-			error += dx;
+			error += delta_x;
 			start.y += sy;
-	 	}
+		}
 	}
-}	
+}

@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 08:12:50 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/27 08:25:55 by etachott         ###   ########.fr       */
+/*   Updated: 2022/10/31 11:54:46 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	zoom(t_map_values **map, int zoom)
 			map[x][y].x *= zoom;
 			map[x][y].y *= zoom;
 			if ((map[x] + y)->eol)
-				break;
+				break ;
 			y++;
 		}
 		x++;

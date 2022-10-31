@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/27 15:51:38 by coder             #+#    #+#              #
-#    Updated: 2022/10/14 16:27:48 by edu              ###   ########.fr        #
+#    Updated: 2022/10/31 10:02:09 by edu              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,8 @@ LIBSRCS = $(addprefix $(PATH_LIBSRCS)/, ft_atoi.c \
 	   ft_toupper.c)
 
 GNLSRCS = $(addprefix $(PATH_GNLSRCS)/, get_next_line.c \
-	   get_next_line_utils.c)
+	   get_next_line_utils1.c \
+	   get_next_line_utils2.c)
 
 FT_PRINTFSRCS = $(addprefix $(PATH_FT_PRINTFSRCS)/, ft_printf.c \
 				ft_printf_utils.c \
