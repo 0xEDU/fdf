@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_utils_2.c                                      :+:      :+:    :+:   */
+/*   map_generation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 16:36:09 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/31 11:57:37 by edu              ###   ########.fr       */
+/*   Updated: 2022/11/01 11:45:02 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	transform_to_isometric(t_map_values **matrix)
 		y = 0;
 		while (matrix[x] + y)
 		{
-			matrix[x][y].x = (cos(THETA) * y - sin(THETA) * x) * 20 + 380;
-			matrix[x][y].y = (sin(THETA) * y + cos(THETA) * x) * 17 + 150
+			matrix[x][y].x = (cos(THETA) * y - sin(THETA) * x) + 340;// * ratio_x + 340;
+			matrix[x][y].y = (sin(THETA) * y + cos(THETA) * x) + 150// * ratio_y + 150
 				- (matrix[x][y].z * 3);
 			if (matrix[x][y].y < 0)
 				matrix[x][y].y *= -1;
