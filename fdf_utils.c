@@ -6,23 +6,23 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 17:12:03 by edu               #+#    #+#             */
-/*   Updated: 2022/10/26 13:32:52 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/02 15:48:19 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	free_matrix(void **matrix, int elements)
+void	free_map(void **map, int elements)
 {
 	int	i;
 
 	i = 0;
 	while (i < elements)
 	{
-		free(matrix[i]);
+		free(map[i]);
 		i++;
 	}
-	free(matrix);
+	free(map);
 }
 
 size_t	ft_count_lines(char *file)
@@ -45,12 +45,12 @@ size_t	ft_count_lines(char *file)
 	return (i);
 }
 
-size_t	ft_count_words(const char **matrix)
+size_t	ft_count_words(const char **map)
 {
 	size_t	i;
 
 	i = 0;
-	while (matrix[i])
+	while (map[i])
 		i++;
 	return (i);
 }
@@ -77,6 +77,6 @@ t_map_values	*ft_stoia(char *str, int iteration)
 		index++;
 	}
 	final_array[index - 1].eol = 1;
-	free_matrix((void **)word_matrix, elements);
+	free_map((void **)word_matrix, elements);
 	return (final_array);
 }

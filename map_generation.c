@@ -6,31 +6,25 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 16:36:09 by etachott          #+#    #+#             */
-/*   Updated: 2022/11/01 11:45:02 by edu              ###   ########.fr       */
+/*   Updated: 2022/11/02 16:35:33 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #define THETA 0.7853982
 
-void	transform_to_isometric(t_map_values **matrix)
+void	transform_to_isometric(t_map_values **map, void (*transform)(t_map_values *))
 {
 	int		x;
 	int		y;
 
 	x = 0;
-	while (matrix[x])
+	while (map[x])
 	{
 		y = 0;
-		while (matrix[x] + y)
+		while (map[x] + y)
 		{
-			matrix[x][y].x = (cos(THETA) * y - sin(THETA) * x) + 340;// * ratio_x + 340;
-			matrix[x][y].y = (sin(THETA) * y + cos(THETA) * x) + 150// * ratio_y + 150
-				- (matrix[x][y].z * 3);
-			if (matrix[x][y].y < 0)
-				matrix[x][y].y *= -1;
-			if ((matrix[x] + y)->eol)
-				break ;
+			transform(&map[x][y]);
 			y++;
 		}
 		x++;
@@ -39,27 +33,28 @@ void	transform_to_isometric(t_map_values **matrix)
 
 void	connect_dots(t_data *img, t_map_values **map)
 {	
-	int	line;
-	int	column;
+	int	x;
+	int	y;
 
-	line = 0;
-	while (map[line])
+	x = 0;
+	ft_printf("Entering connect_dots\n");
+	while (map[x])
 	{
-		column = 0;
-		while (map[line] + column)
+		y = 0;
+		while (map[x] + y)
 		{
-			if (!map[line][column].eol)
+			if (!map[x][y].eol)
 				draw_line2(img,
-					map[line][column],
-					map[line][column + 1]);
-			if (map[line + 1])
+					map[x][y],
+					map[x][y + 1]);
+			if (map[x + 1])
 				draw_line2(img,
-					map[line][column],
-					map[line + 1][column]);
-			if ((map[line] + column)->eol)
+					map[x][y],
+					map[x + 1][y]);
+			if ((map[x] + y)->eol)
 				break ;
-			column++;
+			y++;
 		}
-		line++;
+		x++;
 	}
 }

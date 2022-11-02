@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:36:05 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/31 16:08:57 by edu              ###   ########.fr       */
+/*   Updated: 2022/11/02 16:11:52 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,11 @@ void	draw_line2(t_data *img, t_map_values start, t_map_values end)
 
 	set_values(&delta, &s, &start, &end);
 	error = delta.x + delta.y;
+	ft_printf("Entering draw_line2\n");
 	while (1)
 	{
 		put_pixel(img, start.x, start.y, 0x0000FFFF);
+		ft_printf("x = %d, y = %d\n", start.x, start.y);
 		if (start.x == end.x && start.y == end.y)
 			break ;
 		if ((2 * error) >= delta.y)

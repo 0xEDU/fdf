@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/11/01 11:44:11 by edu              ###   ########.fr       */
+/*   Updated: 2022/11/02 16:01:27 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <math.h>
+# define WIDTH 800
+# define HEIGHT 600
 
 typedef struct s_data {
 	void	*img;
@@ -60,9 +62,9 @@ int				click_press_events(t_mlx_vars *mlx);
 void			connect_dots(t_data *img, t_map_values **map);
 t_map_values	**create_matrix_from_file(char *file, size_t rows);
 void			draw_line2(t_data *img, t_map_values start, t_map_values end);
-void			free_matrix(void **matrix, int elements);
+void			free_map(void **map, int elements);
 size_t			ft_count_lines(char *file);
-size_t			ft_count_words(const char **matrix);
+size_t			ft_count_words(const char **map);
 t_map_values	*ft_stoia(char *str, int iteration);
 int				handle_no_event(void);
 int				key_press_events(int keycode, t_mlx_vars *mlx);
@@ -74,7 +76,7 @@ void			put_square(t_data img, t_map_values map_values,
 					int square_size, int color);
 void			put_triangle(t_data img);
 int				quit(t_mlx_vars *mlx);
-void			transform_to_isometric(t_map_values **matrix);
+void			transform_to_isometric(t_map_values **map);
 
 // Temporary functions (COPILOT)
 
