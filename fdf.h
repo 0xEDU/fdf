@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/11/02 16:01:27 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/03 16:26:50 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,23 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <math.h>
-# define WIDTH 800
-# define HEIGHT 600
+# define WIDTH 1280
+# define HEIGHT 800
+
+typedef struct s_limits {
+	int	top;
+	int	bottom;
+	int	left;
+	int	right;
+}				t_limits;
 
 typedef struct s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
+	t_limits	limits;
+	void		*img;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
 }				t_data;
 
 typedef struct s_line_values {
@@ -37,7 +45,16 @@ typedef struct s_line_values {
 	int	y;
 }				t_line_values;
 
+typedef struct s_meta_map {
+	int	rows;
+	int	cols;
+	int	scale_x;
+	int	scale_y;
+}				t_meta_map;
+
 typedef struct s_map_values {
+
+	t_meta_map	meta;
 	int			x;
 	int			y;
 	int			z;
@@ -63,11 +80,12 @@ void			connect_dots(t_data *img, t_map_values **map);
 t_map_values	**create_matrix_from_file(char *file, size_t rows);
 void			draw_line2(t_data *img, t_map_values start, t_map_values end);
 void			free_map(void **map, int elements);
-size_t			ft_count_lines(char *file);
-size_t			ft_count_words(const char **map);
+size_t			ft_count_rows(char *file);
+size_t			ft_count_cols(const char **map);
 t_map_values	*ft_stoia(char *str, int iteration);
 int				handle_no_event(void);
 int				key_press_events(int keycode, t_mlx_vars *mlx);
+void			meta_data(t_map_values **map);
 int				mouse_press_events(int button, int x, int y, t_mlx_vars *mlx);
 void			paint_image(t_data img, int w_length, int w_height);
 void			put_map(t_mlx_vars *mlx, t_data *img, char *map_file);
@@ -76,7 +94,12 @@ void			put_square(t_data img, t_map_values map_values,
 					int square_size, int color);
 void			put_triangle(t_data img);
 int				quit(t_mlx_vars *mlx);
-void			transform_to_isometric(t_map_values **map);
+void			transform_map(t_map_values **map, void (*transform)(t_map_values
+						*map_values));
+void			extrude(t_map_values *pos);
+void			rotate(t_map_values *pos);
+void			down(t_map_values *pos);
+void			scale(t_map_values **map, int *scale_val);
 
 // Temporary functions (COPILOT)
 

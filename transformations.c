@@ -1,58 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_generation.c                                   :+:      :+:    :+:   */
+/*   transformations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 16:36:09 by etachott          #+#    #+#             */
-/*   Updated: 2022/11/03 16:26:37 by etachott         ###   ########.fr       */
+/*   Created: 2022/11/02 17:27:05 by etachott          #+#    #+#             */
+/*   Updated: 2022/11/03 17:05:07 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#define THETA 0.7853982
 
-void	transform_map(t_map_values **map, void (*transform)(t_map_values *))
+void	extrude(t_map_values *pos)
 {
-	int		x;
-	int		y;
-
-	x = 0;
-	while (map[x])
-	{
-		y = 0;
-		while (map[x] + y)
-		{
-			transform(&map[x][y]);
-			if (map[x][y].eol)
-				break ;
-			y++;
-		}
-		x++;
-	}
+		pos->y = pos->y + pos->z;
 }
 
-void	connect_dots(t_data *img, t_map_values **map)
-{	
+void	rotate(t_map_values *pos)
+{
+	int	x;
+	int	y;
+
+	x = (pos->x * 1) + (pos->y * 1);
+	y = (pos->x * 1) + (pos->y * -1);
+	pos->x = x - (WIDTH * 1.7) / 4;
+	pos->y = y;
+}
+
+void	down(t_map_values *pos)
+{
+	pos->y /= 2;
+}
+
+void	scale(t_map_values **map, int *scale_value)
+{
 	int	x;
 	int	y;
 
 	x = 0;
-	ft_printf("Entering connect_dots\n");
 	while (map[x])
 	{
 		y = 0;
 		while (map[x] + y)
 		{
-			if (!map[x][y].eol)
-				draw_line2(img,
-					map[x][y],
-					map[x][y + 1]);
-			if (map[x + 1])
-				draw_line2(img,
-					map[x][y],
-					map[x + 1][y]);
+			map[x][y].x *= *scale_value;
+			map[x][y].y *= *scale_value;
+			map[x][y].z *= *scale_value / 2;
 			if ((map[x] + y)->eol)
 				break ;
 			y++;

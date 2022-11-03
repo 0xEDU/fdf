@@ -11,11 +11,13 @@ LIBDIR = libft
 LIB = $(LIBDIR)/libft.a
 
 SRCS = $(addprefix $(PATH_SRCS)/, fdf.c \
-	   bresenham.c      \
-	   events.c         \
-	   map_render.c     \
-	   map_generation.c \
-	   mlx_utils_1.c    \
+	   bresenham.c       \
+	   events.c          \
+	   map_render.c      \
+	   map_generation.c  \
+	   map_utils.c       \
+	   mlx_utils_1.c     \
+	   transformations.c \
 	   fdf_utils.c)
 
 OBJS = $(SRCS:$(PATH_SRCS)/%.c=$(PATH_OBJS)/%.o)

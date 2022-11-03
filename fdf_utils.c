@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 17:12:03 by edu               #+#    #+#             */
-/*   Updated: 2022/11/02 15:48:19 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/03 15:10:17 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	free_map(void **map, int elements)
 	free(map);
 }
 
-size_t	ft_count_lines(char *file)
+size_t	ft_count_rows(char *file)
 {
 	size_t	i;
 	char	*line;
@@ -45,7 +45,7 @@ size_t	ft_count_lines(char *file)
 	return (i);
 }
 
-size_t	ft_count_words(const char **map)
+size_t	ft_count_cols(const char **map)
 {
 	size_t	i;
 
@@ -66,7 +66,7 @@ t_map_values	*ft_stoia(char *str, int iteration)
 	word_matrix = ft_split(str, ' ');
 	if (!word_matrix)
 		return (NULL);
-	elements = ft_count_words((const char **)word_matrix);
+	elements = ft_count_cols((const char **)word_matrix);
 	final_array = malloc(sizeof(t_map_values) * elements);
 	while (index < elements)
 	{

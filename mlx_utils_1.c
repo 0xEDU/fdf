@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 08:12:50 by etachott          #+#    #+#             */
-/*   Updated: 2022/10/31 11:54:46 by edu              ###   ########.fr       */
+/*   Updated: 2022/11/03 13:46:50 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,18 @@
 void	put_pixel(t_data *data, int x, int y, int color)
 {
 	char	*dst;
+	int		*pixel;
+	int		y_map;
+	int		x_map;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
+	if (x > data->limits.right || x < data->limits.left || y < data->limits.bottom
+		|| y > data->limits.top)
+		return ;
+	y_map = (data->limits.top - y) * data->line_length;
+	x_map = (data->limits.right + x) * (data->bits_per_pixel / 8);
+	dst = data->addr + y_map + x_map;
+	pixel = (int *)dst;
+	*pixel = color;
 }
 
 void	paint_image(t_data img, int w_length, int w_height)
@@ -36,26 +45,5 @@ void	paint_image(t_data img, int w_length, int w_height)
 			map_values.y++;
 		}
 		map_values.x++;
-	}
-}
-
-void	zoom(t_map_values **map, int zoom)
-{
-	int		x;
-	int		y;
-
-	x = 0;
-	while (map[x])
-	{
-		y = 0;
-		while (map[x] + y)
-		{
-			map[x][y].x *= zoom;
-			map[x][y].y *= zoom;
-			if ((map[x] + y)->eol)
-				break ;
-			y++;
-		}
-		x++;
 	}
 }
