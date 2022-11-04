@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 17:12:03 by edu               #+#    #+#             */
-/*   Updated: 2022/11/03 15:10:17 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/04 11:37:59 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,19 @@ size_t	ft_count_cols(const char **map)
 	return (i);
 }
 
+int	color_picker(char *line)
+{
+	int	i;
+
+	if (ft_strchr(line, ','))
+	{
+		i = ft_strchr(line, ',') - line;
+		return (0x00FF0000);
+	}
+	else
+		return (0x00FFFFFF);
+}
+
 t_map_values	*ft_stoia(char *str, int iteration)
 {
 	t_map_values		*final_array;
@@ -73,6 +86,7 @@ t_map_values	*ft_stoia(char *str, int iteration)
 		final_array[index].x = index;
 		final_array[index].y = iteration;
 		final_array[index].z = ft_atoi(word_matrix[index]);
+		final_array[index].color = color_picker(word_matrix[index]);
 		final_array[index].eol = 0;
 		index++;
 	}

@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/11/03 16:26:50 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/03 17:27:02 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_map_values {
 	int			x;
 	int			y;
 	int			z;
+	int			color;
 	short int	eol;
 }				t_map_values;
 
