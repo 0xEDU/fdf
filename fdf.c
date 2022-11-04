@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:33:35 by etachott          #+#    #+#             */
-/*   Updated: 2022/11/04 18:40:40 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/04 18:55:25 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ int	main(int argc, char *argv[])
 	t_data			img;
 	t_mlx_vars		mlx;
 
-	if (argc != 2)
-		return (ft_printf("Usage: ./fdf [FILE]\n"));
+	if (argc != 2 || !validate_file(argv[1]))
+		return (ft_printf("Usage: ./fdf [VALID FILE]\n"));
 	create_window(&mlx);
 	mlx.map_size = ft_count_rows(argv[1]);
 	img.img = mlx_new_image(mlx.mlx, WIDTH, HEIGHT);

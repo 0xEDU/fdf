@@ -6,34 +6,11 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 11:42:00 by edu               #+#    #+#             */
-/*   Updated: 2022/11/04 13:20:05 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/04 18:54:26 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-t_map_values	**create_matrix_from_file(char *file, size_t rows)
-{
-	t_map_values		**final_matrix;
-	char				*line;
-	int					fd;
-	int					i;
-
-	i = 0;
-	fd = open(file, O_RDONLY);
-	final_matrix = ft_calloc(sizeof(t_map_values *), rows + 1);
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (!line)
-			break ;
-		final_matrix[i] = ft_stoia(line, i);
-		i++;
-		free(line);
-	}
-	close(fd);
-	return (final_matrix);
-}
 
 void	isometric_render(t_map_values **map)
 {
