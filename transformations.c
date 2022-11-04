@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:27:05 by etachott          #+#    #+#             */
-/*   Updated: 2022/11/03 17:05:07 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/04 15:12:41 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	extrude(t_map_values *pos)
 {
-		pos->y = pos->y + pos->z;
+	pos->y = pos->y + pos->z;
 }
 
 void	rotate(t_map_values *pos)
@@ -24,8 +24,8 @@ void	rotate(t_map_values *pos)
 
 	x = (pos->x * 1) + (pos->y * 1);
 	y = (pos->x * 1) + (pos->y * -1);
-	pos->x = x - (WIDTH * 1.7) / 4;
-	pos->y = y;
+	pos->x = x - (WIDTH * 1.4) / 4;
+	pos->y = y - (HEIGHT * 1.5) / 4;
 }
 
 void	down(t_map_values *pos)

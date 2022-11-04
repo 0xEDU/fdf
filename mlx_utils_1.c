@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 08:12:50 by etachott          #+#    #+#             */
-/*   Updated: 2022/11/03 13:46:50 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/04 13:21:14 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	put_pixel(t_data *data, int x, int y, int color)
 	int		y_map;
 	int		x_map;
 
-	if (x > data->limits.right || x < data->limits.left || y < data->limits.bottom
+	if (x > data->limits.right || x < data->limits.left
+		|| y < data->limits.bottom
 		|| y > data->limits.top)
 		return ;
 	y_map = (data->limits.top - y) * data->line_length;

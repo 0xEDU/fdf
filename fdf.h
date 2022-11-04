@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/11/03 17:27:02 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/04 13:22:04 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ typedef struct s_meta_map {
 }				t_meta_map;
 
 typedef struct s_map_values {
-
 	t_meta_map	meta;
 	int			x;
 	int			y;
@@ -101,7 +100,4 @@ void			extrude(t_map_values *pos);
 void			rotate(t_map_values *pos);
 void			down(t_map_values *pos);
 void			scale(t_map_values **map, int *scale_val);
-
-// Temporary functions (COPILOT)
-
 #endif

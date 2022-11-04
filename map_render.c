@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 11:42:00 by edu               #+#    #+#             */
-/*   Updated: 2022/11/03 17:18:08 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/04 13:20:05 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	isometric_render(t_map_values **map)
 {
 	int		scale_val;
 
-	scale_val = HEIGHT / sqrt(pow(map[0][0].meta.rows, 2) + pow(map[0][0].meta.cols, 2));
+	scale_val = HEIGHT / sqrt(pow(map[0][0].meta.rows, 2)
+			+ pow(map[0][0].meta.cols, 2));
 	scale(map, &scale_val);
 	transform_map(map, &rotate);
 	transform_map(map, &down);
@@ -48,7 +49,6 @@ void	isometric_render(t_map_values **map)
 
 void	put_map(t_mlx_vars *mlx, t_data *img, char *map_file)
 {
-
 	mlx->map = create_matrix_from_file(map_file, mlx->map_size);
 	meta_data(mlx->map);
 	isometric_render(mlx->map);

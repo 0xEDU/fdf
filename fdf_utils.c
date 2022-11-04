@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 17:12:03 by edu               #+#    #+#             */
-/*   Updated: 2022/11/04 11:37:59 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/04 14:10:33 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	color_picker(char *line)
 	if (ft_strchr(line, ','))
 	{
 		i = ft_strchr(line, ',') - line;
-		return (0x00FF0000);
+		return (ft_atoi_base(line + i + 3, 16));
 	}
 	else
 		return (0x00FFFFFF);
