@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 16:36:09 by etachott          #+#    #+#             */
-/*   Updated: 2022/11/03 16:26:37 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/04 17:07:06 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	connect_dots(t_data *img, t_map_values **map)
 	int	y;
 
 	x = 0;
-	ft_printf("Entering connect_dots\n");
 	while (map[x])
 	{
 		y = 0;
