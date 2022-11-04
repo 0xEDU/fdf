@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/11/04 13:22:04 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/04 18:26:00 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,21 @@ size_t			ft_count_cols(const char **map);
 t_map_values	*ft_stoia(char *str, int iteration);
 int				handle_no_event(void);
 int				key_press_events(int keycode, t_mlx_vars *mlx);
+int				key_release_events(int keycode, t_mlx_vars *mlx);
 void			meta_data(t_map_values **map);
 int				mouse_press_events(int button, int x, int y, t_mlx_vars *mlx);
+void			move_up(t_map_values *pos);
+void			move_down(t_map_values *pos);
+void			move_left(t_map_values *pos);
+void			move_right(t_map_values *pos);
 void			paint_image(t_data img, int w_length, int w_height);
 void			put_map(t_mlx_vars *mlx, t_data *img, char *map_file);
 void			put_pixel(t_data *data, int x, int y, int color);
 void			put_square(t_data img, t_map_values map_values,
 					int square_size, int color);
 void			put_triangle(t_data img);
+int				redraw_map(t_mlx_vars *mlx);
+void			set_limits(t_data *img);
 int				quit(t_mlx_vars *mlx);
 void			transform_map(t_map_values **map, void (*transform)(t_map_values
 						*map_values));

@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:33:35 by etachott          #+#    #+#             */
-/*   Updated: 2022/11/04 12:13:09 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/04 18:40:40 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	main_loop(t_mlx_vars *mlx)
 {
+	mlx_expose_hook(mlx->window, redraw_map, mlx);
 	mlx_key_hook(mlx->window, &key_press_events, mlx);
-	mlx_hook(mlx->window, 4, 1L << 2, mouse_press_events, mlx);
 	mlx_hook(mlx->window, 17, 0, click_press_events, mlx);
 	mlx_loop(mlx->mlx);
 }

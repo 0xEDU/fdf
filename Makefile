@@ -16,6 +16,7 @@ SRCS = $(addprefix $(PATH_SRCS)/, fdf.c \
 	   map_render.c      \
 	   map_generation.c  \
 	   map_utils.c       \
+	   move.c            \
 	   mlx_utils_1.c     \
 	   transformations.c \
 	   fdf_utils.c)
