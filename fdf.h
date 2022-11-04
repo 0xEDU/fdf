@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/11/04 18:53:34 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/04 19:03:08 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include "libft/includes/libput.h"
 # include <unistd.h>
 # include <fcntl.h>
-# include <stdio.h>
 # include <math.h>
 # define WIDTH 1280
 # define HEIGHT 800
