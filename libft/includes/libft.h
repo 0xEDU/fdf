@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:51:37 by coder             #+#    #+#             */
-/*   Updated: 2022/11/04 15:21:13 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/04 15:29:19 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_list
 }	t_list;
 
 int		ft_atoi(const char *str);
-int		ft_atoi_hex(const char *str, int str_base);
+int		ft_atoi_hex(const char *str);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 int		ft_isascii(int c);
