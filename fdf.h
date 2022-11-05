@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:35:02 by etachott          #+#    #+#             */
-/*   Updated: 2022/11/04 19:03:08 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/04 21:30:19 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ size_t			ft_count_rows(char *file);
 size_t			ft_count_cols(const char **map);
 t_map_values	*ft_stoia(char *str, int iteration);
 int				handle_no_event(void);
+void			isometric_render(t_map_values **map);
 int				key_press_events(int keycode, t_mlx_vars *mlx);
 int				key_release_events(int keycode, t_mlx_vars *mlx);
 void			meta_data(t_map_values **map);
@@ -107,4 +108,6 @@ void			move_up(t_map_values *pos);
 void			move_down(t_map_values *pos);
 void			move_left(t_map_values *pos);
 void			move_right(t_map_values *pos);
+void			zoom_more(t_map_values *pos);
+void			zoom_less(t_map_values *pos);
 #endif

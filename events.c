@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 09:53:52 by edu               #+#    #+#             */
-/*   Updated: 2022/11/04 18:46:23 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/04 21:26:20 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	button_press_events(int keycode, t_mlx_vars *mlx)
 
 int	key_press_events(int keycode, t_mlx_vars *mlx)
 {
+	ft_printf("KEYCODE = %d\n", keycode);
 	if (keycode == 65307)
 		quit(mlx);
 	if (keycode == 65362)
@@ -35,7 +36,11 @@ int	key_press_events(int keycode, t_mlx_vars *mlx)
 		transform_map(mlx->map, &move_left);
 	if (keycode == 65363)
 		transform_map(mlx->map, &move_right);
-	if (65361 <= keycode && keycode <= 65364)
+	if (keycode == 45)
+		transform_map(mlx->map, &zoom_less);
+	if (keycode == 61)
+		transform_map(mlx->map, &zoom_more);
+	if (keycode != 65307)
 		redraw_map(mlx);
 	return (0);
 }

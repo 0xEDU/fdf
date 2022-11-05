@@ -19,7 +19,8 @@ SRCS = $(addprefix $(PATH_SRCS)/, fdf.c \
 	   move.c            \
 	   mlx_utils_1.c     \
 	   transformations.c \
-	   fdf_utils.c)
+	   fdf_utils.c       \
+	   zoom.c)
 
 OBJS = $(SRCS:$(PATH_SRCS)/%.c=$(PATH_OBJS)/%.o)
 
