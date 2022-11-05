@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 16:36:09 by etachott          #+#    #+#             */
-/*   Updated: 2022/11/04 18:54:14 by etachott         ###   ########.fr       */
+/*   Updated: 2022/11/05 10:02:45 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,3 @@ void	transform_map(t_map_values **map, void (*transform)(t_map_values *))
 		x++;
 	}
 }
-
