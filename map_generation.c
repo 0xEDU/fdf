@@ -66,29 +66,3 @@ void	transform_map(t_map_values **map, void (*transform)(t_map_values *))
 	}
 }
 
-void	connect_dots(t_data *img, t_map_values **map)
-{	
-	int	x;
-	int	y;
-
-	x = 0;
-	while (map[x])
-	{
-		y = 0;
-		while (map[x] + y)
-		{
-			if (!map[x][y].eol)
-				draw_line2(img,
-					map[x][y],
-					map[x][y + 1]);
-			if (map[x + 1])
-				draw_line2(img,
-					map[x][y],
-					map[x + 1][y]);
-			if ((map[x] + y)->eol)
-				break ;
-			y++;
-		}
-		x++;
-	}
-}

@@ -10,17 +10,18 @@ PATH_OBJS = .
 LIBDIR = libft
 LIB = $(LIBDIR)/libft.a
 
-SRCS = $(addprefix $(PATH_SRCS)/, fdf.c \
-	   bresenham.c       \
-	   events.c          \
-	   map_render.c      \
-	   map_generation.c  \
-	   map_utils.c       \
-	   move.c            \
-	   mlx_utils_1.c     \
-	   transformations.c \
-	   fdf_utils.c       \
-	   zoom.c)
+SRCS = $(addprefix $(PATH_SRCS)/, main.c \
+	   map_draw_alg.c         \
+	   map_generation.c       \
+	   map_line_parsing.c     \
+	   map_metadata.c         \
+	   map_move.c             \
+	   map_render.c           \
+	   map_transformations.c  \
+	   map_zoom.c             \
+	   mlx_draw_utils.c       \
+	   mlx_events.c           \
+	   mlx_window.c)
 
 OBJS = $(SRCS:$(PATH_SRCS)/%.c=$(PATH_OBJS)/%.o)
 
