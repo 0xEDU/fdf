@@ -14,13 +14,19 @@
 
 int	validate_file(char *file)
 {
-	int	fd;
+	char	tmp[1];
+	int		fd;
+	int		read_return;
 
 	fd = open(file, O_RDONLY);
-	if (fd < 0)
+	read_return = read(fd, tmp, 1);
+	if (fd < 0 || read_return < 0)
 		return (0);
 	else
+	{
+		close(fd);
 		return (1);
+	}
 }
 
 t_map_values	**create_matrix_from_file(char *file, size_t rows)
