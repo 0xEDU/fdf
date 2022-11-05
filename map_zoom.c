@@ -14,12 +14,12 @@
 
 void	zoom_more(t_map_values *pos)
 {
-	pos->x /= 2;
-	pos->y /= 2;
+	pos->x *= 2;
+	pos->y *= 2;
 }
 
 void	zoom_less(t_map_values *pos)
 {
-	pos->x *= 2;
-	pos->y *= 2;
+	pos->x /= 2;
+	pos->y /= 2;
 }

@@ -20,7 +20,7 @@ int	validate_file(char *file)
 
 	fd = open(file, O_RDONLY);
 	read_return = read(fd, tmp, 1);
-	if (fd < 0 || read_return < 0)
+	if (fd < 0 || read_return < 0 || !ft_strnstr(file, ".fdf", ft_strlen(file)))
 		return (0);
 	else
 	{

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "libft.h"
 
 static char	*set_buffer(int fd, char *buffer);
 static char	*get_line(char *buffer);

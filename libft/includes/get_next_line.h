@@ -18,7 +18,7 @@
 // prototypes
 void	*gnl_calloc(size_t count, size_t size);
 char	*gnl_strjoin(char *s1, char *s2);
-size_t	ft_strlen(const char *s);
+size_t	gnl_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 int		gnl_strchr(const char *s, char c);
 char	*ft_strdup(const char *s1);
