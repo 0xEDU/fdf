@@ -77,6 +77,7 @@ typedef struct s_bsh {
 int				click_press_events(t_mlx_vars *mlx);
 void			connect_dots(t_data *img, t_map_values **map);
 t_map_values	**create_matrix_from_file(char *file, size_t rows);
+void			create_window(t_mlx_vars *mlx);
 void			draw_line2(t_data *img, t_map_values start, t_map_values end);
 void			free_map(void **map, int elements);
 size_t			ft_count_rows(char *file);
@@ -86,6 +87,7 @@ int				handle_no_event(void);
 void			isometric_render(t_map_values **map);
 int				key_press_events(int keycode, t_mlx_vars *mlx);
 int				key_release_events(int keycode, t_mlx_vars *mlx);
+void			main_loop(t_mlx_vars *mlx);
 void			meta_data(t_map_values **map);
 int				mouse_press_events(int button, int x, int y, t_mlx_vars *mlx);
 void			paint_image(t_data img, int w_length, int w_height);

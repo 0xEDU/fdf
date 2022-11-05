@@ -25,7 +25,6 @@ int	button_press_events(int keycode, t_mlx_vars *mlx)
 
 int	key_press_events(int keycode, t_mlx_vars *mlx)
 {
-	ft_printf("KEYCODE = %d\n", keycode);
 	if (keycode == 65307)
 		quit(mlx);
 	if (keycode == 65362)
