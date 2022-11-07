@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   map_move.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 17:46:57 by etachott          #+#    #+#             */
-/*   Updated: 2022/11/04 21:35:31 by edu              ###   ########.fr       */
+/*   Updated: 2022/11/07 17:26:32 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 void	move_up(t_map_values *pos)
 {
-	pos->y += 10;
+	pos->y -= 10;
 }
 
 void	move_down(t_map_values *pos)
 {
-	pos->y -= 10;
+	pos->y += 10;
 }
 
 void	move_left(t_map_values *pos)
 {
-	pos->x -= 10;
+	pos->x += 10;
 }
 
 void	move_right(t_map_values *pos)
 {
-	pos->x += 10;
+	pos->x -= 10;
 }
 
 int	redraw_map(t_mlx_vars *mlx)
