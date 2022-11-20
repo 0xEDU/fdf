@@ -13,7 +13,6 @@
 ## Getting started
 <br>
 This project currently works only on Linux.
-</br> <br>
 All valid maps are inside test_maps folder.
 </br>
 First, clone this repository, `cd` into it and also clone and compile MinilibX:
