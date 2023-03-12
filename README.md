@@ -13,8 +13,10 @@
 ## Getting started
 <br>
 This project currently works only on Linux.
-All valid maps are inside test_maps folder.</br><br>
-NOTE: You NEED to have the MLX library installed. Check out https://github.com/42paris/minlibx-linux for installation
+All valid maps are inside test_maps folder.
+</br>
+<br>
+NOTE: You NEED to have the MLX library installed. Check out https://github.com/42paris/minlibx-linux for installation details.
 </br>
 First, clone this repository, `cd` into it and also clone and compile MinilibX:
 
