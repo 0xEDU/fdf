@@ -35,3 +35,4 @@ Usage:
 ```zsh
 $ ./fdf [VALID FILE]
 ```
+Valid files can be found in the test_maps folder!
